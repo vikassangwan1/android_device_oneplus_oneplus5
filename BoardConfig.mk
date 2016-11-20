@@ -236,6 +236,9 @@ BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 TARGET_USES_PREBUILT_ANT := true
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
+# Releasetools extension for shipping firmware
+TARGET_RELEASETOOLS_EXTENSIONS := device/oneplus/oneplus5
+
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
