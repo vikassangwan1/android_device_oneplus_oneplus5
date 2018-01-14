@@ -245,7 +245,11 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    SnapdragonCamera2
+    GoogleCamera
+    
+# Launcher
+PRODUCT_PACKAGES += \
+    PixelLauncher
 
 # power
 #PRODUCT_PACKAGES += \
