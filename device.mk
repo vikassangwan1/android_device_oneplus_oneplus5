@@ -251,6 +251,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     PixelLauncher
 
+# Wallpapers
+PRODUCT_PACKAGES += \
+    PixelWallpapers
+    
 # power
 #PRODUCT_PACKAGES += \
     power.msm8998 \
