@@ -250,10 +250,6 @@ PRODUCT_PACKAGES += \
 # Launcher
 PRODUCT_PACKAGES += \
     PixelLauncher
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    PixelWallpapers
     
 # power
 #PRODUCT_PACKAGES += \
