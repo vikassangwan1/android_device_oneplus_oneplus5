@@ -64,7 +64,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8998
-TARGET_KERNEL_CONFIG := flash-custom_defconfig
+TARGET_KERNEL_CONFIG := oneplus5_defconfig
 #TARGET_KERNEL_CONFIG := omni_oneplus5_defconfig
 
 # partitions
