@@ -196,9 +196,12 @@ PRODUCT_PACKAGES += \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
     libnqnfc-nci \
-    nfc_nci.nqx.default \
+    libnqnfc_nci_jnia \
+    nfc_nci.msm8998 \
+    NfcNci \
     libp61-jcop-kit \
     NQNfcNci \
+    nqnfcinfo \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     Tag
@@ -245,8 +248,16 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    SnapdragonCamera2
+    GoogleCamera
+    
+# Launcher
+PRODUCT_PACKAGES += \
+    PixelLauncher
 
+# Wallpapers
+PRODUCT_PACKAGES += \
+    PixelWallpapers
+    
 # power
 #PRODUCT_PACKAGES += \
     power.msm8998 \
