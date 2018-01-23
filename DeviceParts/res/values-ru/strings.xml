@@ -72,4 +72,10 @@
   <string name="pocket_check_summary">Пульсирующие уведомления при извлечении из кармана</string>
   <string name="pocket_check_title">Карман</string>
   <string name="ambient_display_enable">Активный экран должен быть включен в настройках экрана</string>
+  <string name="panel_category_title">Режимы экрана</string>
+  <string name="panel_category_summary">Режимы цветокоррекции экрана</string>
+  <string name="off_mode_title">выкл</string>
+  <string name="tile_panel_mode">Режимы экрана</string>
+  <string name="tile_hbm_mode">Режим повышенной яркости</string>
+  <string name="wake_entry">Пробуждение</string>
 </resources>
