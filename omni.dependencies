@@ -34,8 +34,8 @@
     "repository": "android_device_qcom_caf-sepolicy",
     "target_path": "device/qcom/sepolicy",
     "revision": "android-8.1"
-    
-{
+  },
+  {
     "remote": "omnirom",
     "repository": "android_vendor_nxp-nfc_interfaces_opensource_nfc",
     "target_path": "vendor/nxp-nfc/interfaces/opensource/nfc",
@@ -58,7 +58,6 @@
     "repository": "android_vendor_nxp-nfc_opensource_Nfc",
     "target_path": "vendor/nxp-nfc/opensource/Nfc",
     "revision": "android-8.1"
-  },
   },
   {
     "repository": "android_external_ant-wireless_antradio-library",
