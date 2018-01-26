@@ -251,8 +251,8 @@ PRODUCT_PACKAGES += \
     GoogleCamera
     
 # Launcher
-#PRODUCT_PACKAGES += \
-#   PixelLauncher
+PRODUCT_PACKAGES += \
+    PixelLauncher
 
 # Wallpapers
 PRODUCT_PACKAGES += \
