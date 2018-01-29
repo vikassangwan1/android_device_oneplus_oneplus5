@@ -248,7 +248,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    GoogleCamera
+    GoogleCamera \
+    SnapdragonCamera2
     
 # Launcher
 PRODUCT_PACKAGES += \
