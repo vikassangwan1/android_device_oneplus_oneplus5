@@ -252,8 +252,8 @@ PRODUCT_PACKAGES += \
     SnapdragonCamera2
     
 # Launcher
-PRODUCT_PACKAGES += \
-    PixelLauncher
+#PRODUCT_PACKAGES += \
+#   PixelLauncher
 
 # Wallpapers
 PRODUCT_PACKAGES += \
