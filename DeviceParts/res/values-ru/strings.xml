@@ -45,7 +45,6 @@
   <string name="Night_mode_title">Ночной режим</string>
   <string name="choose_app">Выбрать приложение</string>
   <string name="category_double_swipe_gesture">Жест ll</string>
-  <string name="offscreen_gesture_title">Жесты на выключенном экране</string>
   <string name="category_circle_gesture">Жест O</string>
   <string name="category_down_arrow_gesture">Жест V</string>
   <string name="category_up_arrow_gesture">Жест A</string>
