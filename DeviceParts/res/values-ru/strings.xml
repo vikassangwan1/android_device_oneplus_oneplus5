@@ -78,4 +78,5 @@
   <string name="tile_panel_mode">Режимы экрана</string>
   <string name="tile_hbm_mode">Режим повышенной яркости</string>
   <string name="wake_entry">Пробуждение</string>
+  <string name="offscreen_gesture_title">Жесты</string>
 </resources>
