@@ -58,6 +58,7 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.util.omni.OmniUtils;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -69,6 +70,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int GESTURE_WAKELOCK_DURATION = 2000;
     private static final String KEY_CONTROL_PATH = "/proc/touchpanel/key_disable";
     private static final String FPC_CONTROL_PATH = "/sys/devices/soc/soc:fpc_fpc1020/proximity_state";
+    private static final String FPC_KEY_CONTROL_PATH = "/sys/devices/soc/soc:fpc_fpc1020/key_disable";
     private static final String GOODIX_CONTROL_PATH = "/sys/devices/soc/soc:goodix_fp/proximity_state";
 
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
@@ -99,6 +101,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int FP_GESTURE_SWIPE_UP = 103;
     private static final int FP_GESTURE_SWIPE_LEFT = 105;
     private static final int FP_GESTURE_SWIPE_RIGHT = 106;
+    private static final int FP_GESTURE_LONG_PRESS = 305;
 
 
     private static final int[] sSupportedGestures = new int[]{
@@ -119,7 +122,8 @@ public class KeyHandler implements DeviceKeyHandler {
         FP_GESTURE_SWIPE_DOWN,
         FP_GESTURE_SWIPE_UP,
         FP_GESTURE_SWIPE_LEFT,
-        FP_GESTURE_SWIPE_RIGHT
+        FP_GESTURE_SWIPE_RIGHT,
+        FP_GESTURE_LONG_PRESS,
     };
 
     private static final int[] sHandledGestures = new int[]{
@@ -378,14 +382,21 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     public static void setButtonDisable(Context context) {
-        mButtonDisabled = Settings.System.getIntForUser(
-                context.getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE, 0,
-                UserHandle.USER_CURRENT) == 1;
-        if (DEBUG) Log.i(TAG, "setButtonDisable=" + mButtonDisabled);
-        if(mButtonDisabled)
-            Utils.writeValue(KEY_CONTROL_PATH, "1");
-        else
-            Utils.writeValue(KEY_CONTROL_PATH, "0");
+        // we should never come here on the 5t but just to be sure
+        if (android.os.Build.DEVICE.equals("OnePlus5")) {
+            mButtonDisabled = Settings.System.getIntForUser(
+                    context.getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE, 0,
+                    UserHandle.USER_CURRENT) == 1;
+            if (DEBUG) Log.i(TAG, "setButtonDisable=" + mButtonDisabled);
+            if(mButtonDisabled) {
+                Utils.writeValue(KEY_CONTROL_PATH, "1");
+                Utils.writeValue(FPC_KEY_CONTROL_PATH, "1");
+            }
+            else {
+                Utils.writeValue(KEY_CONTROL_PATH, "0");
+                Utils.writeValue(FPC_KEY_CONTROL_PATH, "0");
+            }
+        }
     }
 
     @Override
@@ -599,6 +610,12 @@ public class KeyHandler implements DeviceKeyHandler {
         } else if (value.equals(AppSelectListPreference.VOLUME_DOWN_ENTRY)) {
             mAudioManager.adjustSuggestedStreamVolume(AudioManager.ADJUST_LOWER,AudioManager.USE_DEFAULT_STREAM_TYPE,AudioManager.FLAG_SHOW_UI);
             return true;
+        } else if (value.equals(AppSelectListPreference.BROWSE_SCROLL_DOWN_ENTRY)) {
+            OmniUtils.sendKeycode(KeyEvent.KEYCODE_PAGE_DOWN);
+            return true;
+        } else if (value.equals(AppSelectListPreference.BROWSE_SCROLL_UP_ENTRY)) {
+            OmniUtils.sendKeycode(KeyEvent.KEYCODE_PAGE_UP);
+            return true;
         }
         return false;
     }
@@ -646,17 +663,22 @@ public class KeyHandler implements DeviceKeyHandler {
                     return Settings.System.getStringForUser(mContext.getContentResolver(),
                        GestureSettings.DEVICE_GESTURE_MAPPING_10, UserHandle.USER_CURRENT);
                 }
+                break;
             case FP_GESTURE_SWIPE_UP:
                 if (areSystemNavigationKeysEnabled() == false){
                     return Settings.System.getStringForUser(mContext.getContentResolver(),
                        GestureSettings.DEVICE_GESTURE_MAPPING_11, UserHandle.USER_CURRENT);
                 }
+                break;
             case FP_GESTURE_SWIPE_LEFT:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_12, UserHandle.USER_CURRENT);
             case FP_GESTURE_SWIPE_RIGHT:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_13, UserHandle.USER_CURRENT);
+            case FP_GESTURE_LONG_PRESS:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_14, UserHandle.USER_CURRENT);
         }
         return null;
     }
