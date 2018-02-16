@@ -33,6 +33,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 TARGET_BOOTANIMATION_SIZE := 1080p
 TARGET_ARCH := arm64
 TARGET_DENSITY := xxhdpi
+IS_PHONE := true
+TARGET_INCLUDE_ARCORE := true
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
