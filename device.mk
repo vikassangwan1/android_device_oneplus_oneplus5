@@ -242,19 +242,7 @@ PRODUCT_PACKAGES += \
     wcnss_service \
     libcld80211 \
     lib_driver_cmd_qcwcn
-
-# Camera
-PRODUCT_PACKAGES += \
-    GoogleCamera \
-    SnapdragonCamera2
     
-# Launcher
-#PRODUCT_PACKAGES += \
-#   PixelLauncher
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    PixelWallpapers
     
 # power
 #PRODUCT_PACKAGES += \
