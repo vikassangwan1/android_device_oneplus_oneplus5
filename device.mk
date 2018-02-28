@@ -334,6 +334,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/ooscam/lib64/libopcamera.so:system/lib64/libopcamera.so \
     $(LOCAL_PATH)/prebuilt/ooscam/lib64/libopcameralib.so:system/lib64/libopcameralib.so \
     $(LOCAL_PATH)/prebuilt/ooscam/lib64/libRoadLineRebuildAPI.so:system/lib64/libRoadLineRebuildAPI.so
+
+ # VR permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml \
+    frameworks/native/data/etc/android.hardware.vr.headtracking-0.xml:system/etc/permissions/android.hardware.vr.headtracking-0.xml   
 # Temporary handling
 #
 # Include config.fs get only if legacy device/qcom/<target>/android_filesystem_config.h
