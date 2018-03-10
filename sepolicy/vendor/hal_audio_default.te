@@ -8,3 +8,6 @@ allow hal_audio_default perfd_socket:sock_file write;
 
 allow hal_audio_default media_rw_data_file:file { read open getattr };
 
+#V4a
+allow hal_audio_default self:process execmem;
+
