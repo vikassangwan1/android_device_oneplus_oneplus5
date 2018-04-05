@@ -29,6 +29,7 @@ def InstallImage(img_name, img_file, partition, info):
 
 image_partitions = {
    'NON-HLOS.bin'      : 'modem',
+   'logo.bin'          : 'LOGO',
    'static_nvbk.bin'   : 'oem_stanvbk',
    'rpm.mbn'           : 'rpm',
    'pmic.elf'          : 'pmic',

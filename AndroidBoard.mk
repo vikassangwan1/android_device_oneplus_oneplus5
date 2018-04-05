@@ -22,6 +22,8 @@ target_firmware_path := $(ANDROID_BUILD_TOP)/vendor/oneplus/oneplus5/firmware_im
 
 # static_nvbk file
 $(call add-firmware-file,$(target_firmware_path)/static_nvbk.bin)
+# Logo
+$(call add-firmware-file,$(target_firmware_path)/logo.bin)
 # Radio fusion file
 $(call add-firmware-file,$(target_firmware_path)/NON-HLOS.bin)
 # Bluetooth file
