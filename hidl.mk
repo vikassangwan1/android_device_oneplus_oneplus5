@@ -11,12 +11,12 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
-PRODUCT_PACKAGES += camera.device@3.2-impl
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
+#PRODUCT_PACKAGES += camera.device@3.2-impl
+#PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl
 # Enable binderized camera HAL
 #PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0
 
 # Display/Graphics
@@ -98,12 +98,13 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.1 \
     android.hardware.wifi@1.0-service \
-    android.hardware.wifi.supplicant@1.0
+    android.hardware.wifi.supplicant@1.1
 
 #RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.0
+    android.hardware.radio@1.1
 
 #Healthd packages
 PRODUCT_PACKAGES += \
@@ -116,3 +117,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0
+
+PRODUCT_PACKAGES += \
+    android.hidl.manager-V1.0-java
