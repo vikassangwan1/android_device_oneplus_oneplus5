@@ -210,6 +210,8 @@ ro.dirac.ignore_error=1
 #enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
 
+# Vendor
+ro.vendor.patch.level=OxygenOS_5.1.3
 
 #Disable face beautification
 persist.ts.rtmakeup=false
