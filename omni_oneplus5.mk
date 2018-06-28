@@ -34,7 +34,7 @@ TARGET_BOOTANIMATION_SIZE := 1080p
 TARGET_ARCH := arm64
 TARGET_DENSITY := xxhdpi
 IS_PHONE := true
-TARGET_INCLUDE_ARCORE := true
+TARGET_INCLUDE_ARCORE := false
 
 # Releasetools extension for shipping firmware
 TARGET_RELEASETOOLS_EXTENSIONS := device/oneplus/oneplus5
