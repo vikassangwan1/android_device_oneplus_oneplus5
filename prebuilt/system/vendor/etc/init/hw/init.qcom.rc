@@ -447,9 +447,6 @@ on property:persist.sys.ssr.enable_ramdumps=1
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
-on property:sys.post_boot.parsed=1
-    start perfd
-
 on property:sys.boot_completed=1
     #exec u:r:qti_init_shell:s0 -- /init.qcom.crashdata.sh
     write /dev/kmsg "Boot completed "
