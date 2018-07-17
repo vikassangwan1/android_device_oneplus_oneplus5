@@ -9,13 +9,13 @@ on late-fs
 	write /sys/block/sda/queue/iostats 0
 	write /sys/block/sda/queue/scheduler maple
 	write /sys/block/sda/queue/iosched/slice_idle 0
-	write /sys/block/sda/queue/read_ahead_kb 1024
+	write /sys/block/sda/queue/read_ahead_kb 2048
 	write /sys/block/sda/queue/nr_requests 256
 	write /sys/block/sde/queue/iostats 0
 	write /sys/block/sde/queue/scheduler maple
 	write /sys/block/sde/queue/iosched/slice_idle 0
-	write /sys/block/sde/queue/read_ahead_kb 1024
-	write /sys/block/sde/queue/nr_requests 256 
+	write /sys/block/sde/queue/read_ahead_kb 2048
+	write /sys/block/sde/queue/nr_requests 256
 
 on boot
 # update cpusets now that processors are up
@@ -30,22 +30,20 @@ on boot
 	write /dev/stune/top-app/schedtune.boost 1
 
 on property:sys.post_boot.parsed=1
-# Adjust LMK Values
-	write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
 
 # Will only work if using EAS"
 	write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
 	write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 20000
-	write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/iowait_boost_enable 0
+	write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/iowait_boost_enable 1
 	write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 500
 	write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 20000
-	write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable 0
+	write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable 1
 
 # Enable input boost configuration
     write /dev/stune/top-app/schedtune.boost 25
 	write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800"
 	write /sys/module/cpu_boost/parameters/dynamic_stune_boost 10
-	write /sys/module/cpu_boost/parameters/input_boost_ms 64
+	write /sys/module/cpu_boost/parameters/input_boost_ms 150
 
 # update cpusets now that boot is complete and we want better load balancing
 	write /dev/cpuset/top-app/cpus 0-7
